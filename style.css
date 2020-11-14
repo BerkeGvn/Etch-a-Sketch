@@ -1,0 +1,26 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container{
+  background-color: yellow;
+  height: 60%;
+  width: 30%;
+  display: grid;
+  grid-auto-flow: column;
+  /* grid-template-rows: repeat(auto-fit, 1fr);
+  grid-template-columns: repeat(auto-fill, 1fr); */
+  
+}
+.divs{
+  height: fit-content;
+  width: fit-content;
+  border: 1px solid black;
+}
