@@ -1,10 +1,16 @@
 let container = document.querySelector(".container");
-let grid = 16;
+let grid = 8;
+container.style.gridTemplateColumns = `repeat(${grid}, 1fr)`;
+container.style.gridTemplateRows = `repeat(${grid}, 1fr)`;
+let gridSize = document.querySelector(".grid-size");
 
-for (let i = 0; i < 16; i++) {
+for (let i = 0; i < grid * grid; i++) {
   let divs = document.createElement("div");
   divs.classList.add("divs");
   container.appendChild(divs);
-  container.style.gridTemplateColumns = `repeat(${i}, 1fr)`;
-  container.style.gridTemplateRows = `repeat(${i}, 1fr)`;
 }
+
+gridSize.addEventListener("click", function () {
+  let size = prompt("Grid size?");
+  grid = size;
+});

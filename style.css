@@ -11,13 +11,12 @@ body{
 }
 .container{
   background-color: yellow;
-  height: 60%;
-  width: 30%;
+  height: 70%;
+  width: 40%;
   display: grid;
   
 
 }
 .divs{
-
-  
+border: brown 1px solid;
 }
