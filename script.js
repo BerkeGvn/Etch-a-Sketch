@@ -2,7 +2,22 @@ const container = document.querySelector(".container");
 const resetbtn = document.querySelector(".reset");
 const gridSize = document.querySelector(".grid-size");
 const rainbowBtn = document.querySelector(".rainbow");
-const black = document.querySelector(".black");
+const blackBtn = document.querySelector(".black");
+const eraserBtn = document.querySelector(".erase");
+let isBlack = true;
+rainbowBtn.addEventListener("click", () => {
+  let color = "rainbow";
+  setColor(color);
+});
+
+blackBtn.addEventListener("click", () => {
+  let color = "black";
+  setColor(color);
+});
+eraserBtn.addEventListener("click", () => {
+  let color = "erase";
+  setColor(color);
+});
 sizingGrid(16);
 creatingDivs(16);
 function sizingGrid(grid) {
@@ -11,9 +26,12 @@ function sizingGrid(grid) {
 }
 
 gridSize.addEventListener("click", function () {
-  let size = prompt("Grid size? 0-50");
-  if (size > 50) {
-    return alert("Please enter a number below 50");
+  let size = prompt("Grid size? 0-64");
+  if (size > 64) {
+    delGrid();
+    sizingGrid(16);
+    creatingDivs(16);
+    return alert("Please enter a number below 64");
   }
   delGrid();
   sizingGrid(size);
@@ -44,9 +62,20 @@ function creatingDivs(grid) {
     let divs = document.createElement("div");
     divs.classList.add("divs");
     container.appendChild(divs);
+  }
+}
 
-    divs.addEventListener("mouseover", function () {
-      divs.style.backgroundColor = randomColor();
+function setColor(color) {
+  const divs = document.querySelectorAll("div");
+  for (let i = 0; i < divs.length; i++) {
+    divs[i].addEventListener("mouseover", function (e) {
+      if (color == "black") {
+        e.target.style.backgroundColor = "black";
+      } else if (color == "rainbow") {
+        e.target.style.backgroundColor = randomColor();
+      } else {
+        e.target.style.backgroundColor = "rgba(255, 255, 246, 0.877)";
+      }
     });
   }
 }
@@ -55,6 +84,6 @@ resetbtn.addEventListener("click", clear);
 function clear() {
   const allDivs = document.querySelectorAll(".divs");
   allDivs.forEach((allDivs) => {
-    allDivs.style.backgroundColor = "white";
+    allDivs.style.backgroundColor = "rgba(255, 255, 246, 0.877)";
   });
 }
