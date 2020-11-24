@@ -72,7 +72,7 @@ border: rgba(92, 91, 91, 0.137) 1px solid;
 
   }
 }
-@media (max-width:300px) {
+@media (max-width:400px) {
   body {
     height: 95vh;
     display: grid;
@@ -83,13 +83,13 @@ border: rgba(92, 91, 91, 0.137) 1px solid;
    justify-content: center;
   }
   .container {
-    height: 250px;
-    width: 250px;
+    height: 300px;
+    width: 300px;
   }
 
   section {
     grid-area: buttons;
-    width: 250px;
+    width: 300px;
     height: 200px;
     display: grid;
     grid-template-rows: repeat(auto-fill , 1fr);
